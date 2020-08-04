@@ -23,6 +23,11 @@ const StyledTextArea = styled(Textarea)`
 export default function InputSet({ onChange, title, body }) {
   const inputRef = useRef(null);
 
+  function handleChange(event) {
+    const { target: { name, value } } = event;
+    onChange({ name, value });
+  }
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -31,9 +36,9 @@ export default function InputSet({ onChange, title, body }) {
     <div>
       <TitleInput
         name="title"
-        onChange={onChange}
+        onChange={handleChange}
         placeholder="제목"
-        innerRef={inputRef}
+        ref={inputRef}
         value={title}
       />
       <StyledTextArea
@@ -41,7 +46,7 @@ export default function InputSet({ onChange, title, body }) {
         maxRows={20}
         placeholder="메모를 입력하세요..."
         name="body"
-        onChange={onChange}
+        onChange={handleChange}
         value={body}
       />
     </div>
