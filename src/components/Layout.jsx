@@ -22,7 +22,6 @@ Layout.Main = styled.div(mq({
   margin: '0 auto',
   transition: 'all .3s',
   position: 'relative',
-  background: 'gray',
   width: ['1200px', '990px', 'calc(100% - 2rem)', 'calc(100% - 1rem)'],
   marginTop: ['2rem', '2rem', '1rem', '0.5rem'],
 }));

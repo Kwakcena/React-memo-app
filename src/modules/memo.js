@@ -1,3 +1,7 @@
+import {
+  postMemo,
+} from '../lib/web-api';
+
 const initialState = {
 
 };
