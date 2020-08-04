@@ -6,6 +6,12 @@ const initialState = {
   },
 };
 
+const initialWrite = {
+  focused: false,
+  title: '',
+  body: '',
+};
+
 const reducers = {
   changeInput(state, { payload: { name, value } }) {
     return {
@@ -16,9 +22,12 @@ const reducers = {
       },
     };
   },
-  resetInput() {
+  resetInput(state) {
     return {
-      initialState,
+      ...state,
+      write: {
+        ...initialWrite,
+      },
     };
   },
   focusInput(state) {

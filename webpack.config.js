@@ -19,7 +19,7 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      '/api': 'http://localhost:3001', // 프록시
+      '/web-api': 'http://localhost:3001', // 프록시
     },
     historyApiFallback: {
       index: 'index.html',

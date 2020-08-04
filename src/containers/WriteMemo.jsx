@@ -10,6 +10,7 @@ import {
   focusInput,
   blurInput,
 } from '../modules/actionsUi';
+import { createMemo } from '../modules/actionsMemo';
 
 export default function WriteMemo() {
   const ref = useRef();
@@ -38,6 +39,10 @@ export default function WriteMemo() {
     }
   }
 
+  function handleSubmit() {
+    dispatch(createMemo());
+  }
+
   return (
     focused ? (
       <WhiteBox ref={ref}>
@@ -46,7 +51,9 @@ export default function WriteMemo() {
           title={title}
           body={body}
         />
-        <SaveButton />
+        <SaveButton
+          onClick={handleSubmit}
+        />
       </WhiteBox>
     ) : (
       <WhiteBox ref={ref} onClick={handleFocus}>
